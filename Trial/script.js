@@ -157,4 +157,11 @@ const data = [
 
  //destructuring with Arrays
  const primaryGenre=genres[0];
- console.log(primaryGenre)
+ const secondaryGenre=genres[1];
+ console.log(primaryGenre,secondaryGenre);
+
+ let names=['alpha', 'beta', 'gamma','delta'];
+ const firstName=names[0];
+ const lastName=names[1];
+
+ console.log(firstName,lastName);
