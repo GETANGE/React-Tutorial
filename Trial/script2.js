@@ -31,8 +31,10 @@ const pineapple=fruits[2];
 console.log(apple, orange, pineapple);
 
     //destructring the arrays
-    const [fruit1, fruit2, fruit3, fruit4] =fruits;
-    console.log(fruit1, fruit2, fruit3, fruit4);
+    //using the rest operator
+    const [fruit1, fruit2, fruit3,...fruit4] =fruits;
+    console.log(fruit1, fruit2, fruit3);
+    console.log(fruit4);
 
 
 
@@ -48,5 +50,51 @@ const groceryList=[
 console.log(groceryList[0].item);
 
 //accessing properties with destructuring
-const [{item: apples,category: fruit}]=groceryList;
+const [{item: apples,category: fruit},...rest]=groceryList;
 console.log(`The Item is: ${apples} and it falls in the category ${fruit}`);
+console.log(`The rest of the items are: `, rest);
+
+
+
+const company = {
+    name: "Andela",
+    location: [{ city: "Nairobi" }, { city: "Nigeria" }, { city: "New York" }]
+};
+
+const [{ city: loc }] = company.location; // Destructure and assign
+
+console.log(company.location[0].city); // Output: Nairobi
+console.log(loc); // Output: Nairobi
+
+
+const users = [
+    ["Emmanuel", "Getange"],
+    ["John", "Juma"],
+    ["JoyElizabeth", "Muthoni"],
+    ["DanielBrian", "Gatuhu"],
+];
+          [
+              {
+                firstName: "Emmanuel",
+                secondName: "Getange",
+              },
+              {
+                firstName: "John",
+                secondName: "Juma",
+              },
+              {
+                firstName: "JoyElizabeth",
+                secondName: "Muthoni",
+              },
+              {
+                firstName: "DanielBrian",
+                secondName: "Gatuhu",
+              }
+          ];
+
+          // destructering the object.
+          const userObj= users.map(([firstName,secondName])=>{
+            return {firstName, secondName};
+          });
+
+            console.log(userObj);
