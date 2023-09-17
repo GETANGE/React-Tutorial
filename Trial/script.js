@@ -145,6 +145,8 @@ const data = [
   
  // Destructuring
  const book = getBook(2);
+
+
  //book;
  //const title=book.title;
  //title;
@@ -157,11 +159,27 @@ const data = [
 
  //destructuring with Arrays
  const primaryGenre=genres[0];
- const secondaryGenre=genres[1];
- console.log(primaryGenre,secondaryGenre);
+      const secondaryGenre=genres[1];
+      console.log(primaryGenre,secondaryGenre);
 
  let names=['alpha', 'beta', 'gamma','delta'];
  const firstName=names[0];
  const lastName=names[1];
 
  console.log(firstName,lastName);
+
+ const [thirdName,fourthName]= names;
+ console.log(thirdName,fourthName);
+
+const book2 = getBook(3);
+const {id,pages,publicationDate,...translations}= book2;
+console.log(id,pages,publicationDate,genres,translations);
+
+//uses of spread operators to add elements to the array.
+const newGenres =['epic fantasy',...genres]
+console.log(newGenres);
+
+const book3 = getBook(1);
+const updatedBook = {book, moviePublicationDate: "2001-12-19"}
+updatedBook;
+console.log(book3);
