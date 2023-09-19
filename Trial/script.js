@@ -179,7 +179,32 @@ console.log(id,pages,publicationDate,genres,translations);
 const newGenres =['epic fantasy',...genres]
 console.log(newGenres);
 
+// we use spread operators to add new elements to the array or an object.
 const book3 = getBook(1);
-const updatedBook = {book, moviePublicationDate: "2001-12-19"}
+const updatedBook = {book, 
+
+  //Adding an existing property.
+  moviePublicationDate: "2001-12-19",
+  
+  //Overwriting a existing property.
+  pages: 1210
+}
 updatedBook;
-console.log(book3);
+
+
+//TEMPLATES LITERALS IN REACT.
+const summery=`${title} is a book with ${pages} pages was written by '${author}' and published in ${publicationDate}`;
+summery;
+
+//TERNARIES INSTEAD OF IF ELSE .
+const pagesRange=pages > 100 ? 'Over a thousand ': 'less than 1000';
+pagesRange
+
+//ARROW FUNCTIONS
+//function getYear(str){
+  //return str.split('-')[0];
+//}
+//console.log(getYear(publicationDate));
+
+const getYear =(str)=> str.split('-')[0];
+console.log(getYear(publicationDate));
