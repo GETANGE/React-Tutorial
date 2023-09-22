@@ -208,3 +208,40 @@ pagesRange
 
 const getYear =(str)=> str.split('-')[0];
 console.log(getYear(publicationDate));
+
+// SHORT CIRCUITING AND LOGICAL OPERATORS && || ?? 
+// if true ,then compiler will display the second output
+// if false ,then compiler will display the boolean output
+
+console.log(true && 'Some string');
+console.log(false && 'Some string');
+
+console.log("Emmanuel" && "Some string");
+
+// works for  falsy values : 0, '' , null , undefined
+console.log("" && "Some string");
+console.log(0 && "Some string");
+
+// the OR operator || .
+// occurs where the boolean value is true only
+console.log(true || "Some string");
+console.log(false || "Some string");
+
+// EXAMPLES.
+const spanishTranslation = book.translations.spanish || "NOT TRANSLATED";
+spanishTranslation;
+
+    const gfg= function (){
+      console.log("------------------");
+      console.log(false && true);
+      console.log(false && false);
+      console.log(true && false);
+      console.log(true && true);
+
+      console.log("----------------");
+      console.log(true || false);
+      console.log(true || true);
+      console.log(false || true);
+      console.log(false || false);
+    }
+    gfg();
