@@ -93,8 +93,8 @@ const users = [
           ];
 
           // destructering the object.
-          const userObj= users.map(([firstName,secondName])=>{
-            return {firstName, secondName};
+          const userObj= users.map(([first,second])=>{
+            return {first, second};
           });
 
             console.log(userObj);

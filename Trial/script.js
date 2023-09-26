@@ -136,112 +136,194 @@ const data = [
   ];
   
   function getBooks() {
-    return data;
+     return data;
   }
   
-  function getBook(id) {
-    return data.find((d) => d.id === id);
-  }
+//   function getBook(id) {
+//     return data.find((d) => d.id === id);
+//   }
   
- // Destructuring
- const book = getBook(2);
+//  // Destructuring
+//  const book = getBook(2);
 
 
- //book;
- //const title=book.title;
- //title;
-// const author=book.author;
- //author;
+//  //book;
+//  //const title=book.title;
+//  //title;
+// // const author=book.author;
+//  //author;
 
- // destructuring objects
- const{author,title,reviews,genres} = book;
- console.log(author,title,reviews);
+//  // destructuring objects
+//  const{author,title,reviews,genres} = book;
+//  console.log(author,title,reviews);
 
- //destructuring with Arrays
- const primaryGenre=genres[0];
-      const secondaryGenre=genres[1];
-      console.log(primaryGenre,secondaryGenre);
+//  //destructuring with Arrays
+//  const primaryGenre=genres[0];
+//       const secondaryGenre=genres[1];
+//       console.log(primaryGenre,secondaryGenre);
 
- let names=['alpha', 'beta', 'gamma','delta'];
- const firstName=names[0];
- const lastName=names[1];
+//  let names=['alpha', 'beta', 'gamma','delta'];
+//  const firstName=names[0];
+//  const lastName=names[1];
 
- console.log(firstName,lastName);
+//  console.log(firstName,lastName);
 
- const [thirdName,fourthName]= names;
- console.log(thirdName,fourthName);
+//  const [thirdName,fourthName]= names;
+//  console.log(thirdName,fourthName);
 
-const book2 = getBook(3);
-const {id,pages,publicationDate,...translations}= book2;
-console.log(id,pages,publicationDate,genres,translations);
+// const book2 = getBook(3);
+// const {id,pages,publicationDate,...translations}= book2;
+// console.log(id,pages,publicationDate,genres,translations);
 
-//uses of spread operators to add elements to the array.
-const newGenres =['epic fantasy',...genres]
-console.log(newGenres);
+// //uses of spread operators to add elements to the array.
+// const newGenres =['epic fantasy',...genres]
+// console.log(newGenres);
 
-// we use spread operators to add new elements to the array or an object.
-const book3 = getBook(1);
-const updatedBook = {book, 
+// // we use spread operators to add new elements to the array or an object.
+// const book3 = getBook(1);
+// const updatedBook = {book, 
 
-  //Adding an existing property.
-  moviePublicationDate: "2001-12-19",
+//   //Adding an existing property.
+//   moviePublicationDate: "2001-12-19",
   
-  //Overwriting a existing property.
-  pages: 1210
-}
-updatedBook;
+//   //Overwriting a existing property.
+//   pages: 1210
+// }
+// updatedBook;
 
 
-//TEMPLATES LITERALS IN REACT.
-const summery=`${title} is a book with ${pages} pages was written by '${author}' and published in ${publicationDate}`;
-summery;
+// //TEMPLATES LITERALS IN REACT.
+// const summery=`${title} is a book with ${pages} pages was written by '${author}' and published in ${publicationDate}`;
+// summery;
 
-//TERNARIES INSTEAD OF IF ELSE .
-const pagesRange=pages > 100 ? 'Over a thousand ': 'less than 1000';
-pagesRange
+// //TERNARIES INSTEAD OF IF ELSE .
+// const pagesRange=pages > 100 ? 'Over a thousand ': 'less than 1000';
+// pagesRange
 
-//ARROW FUNCTIONS
-//function getYear(str){
-  //return str.split('-')[0];
-//}
-//console.log(getYear(publicationDate));
+// //ARROW FUNCTIONS
+// //function getYear(str){
+//   //return str.split('-')[0];
+// //}
+// //console.log(getYear(publicationDate));
 
-const getYear =(str)=> str.split('-')[0];
-console.log(getYear(publicationDate));
+// const getYear =(str)=> str.split('-')[0];
+// console.log(getYear(publicationDate));
 
-// SHORT CIRCUITING AND LOGICAL OPERATORS && || ?? 
-// if true ,then compiler will display the second output
-// if false ,then compiler will display the boolean output
+// // SHORT CIRCUITING AND LOGICAL OPERATORS && || ?? 
+// // if true ,then compiler will display the second output
+// // if false ,then compiler will display the boolean output
 
-console.log(true && 'Some string');
-console.log(false && 'Some string');
+// console.log(true && 'Some string');
+// console.log(false && 'Some string');
 
-console.log("Emmanuel" && "Some string");
+// console.log("Emmanuel" && "Some string");
 
-// works for  falsy values : 0, '' , null , undefined
-console.log("" && "Some string");
-console.log(0 && "Some string");
+// // works for  falsy values : 0, '' , null , undefined
+// console.log("" && "Some string");
+// console.log(0 && "Some string");
 
-// the OR operator || .
-// occurs where the boolean value is true only
-console.log(true || "Some string");
-console.log(false || "Some string");
+// // the OR operator || .
+// // occurs where the boolean value is true only
+// console.log(true || "Some string");
+// console.log(false || "Some string");
 
-// EXAMPLES.
-const spanishTranslation = book.translations.spanish || "NOT TRANSLATED";
-spanishTranslation;
+// // EXAMPLES.
+// const spanishTranslation = book.translations.spanish || "NOT TRANSLATED";
+// spanishTranslation;
 
-    const gfg= function (){
-      console.log("------------------");
-      console.log(false && true);
-      console.log(false && false);
-      console.log(true && false);
-      console.log(true && true);
+//     const gfg= function (){
+//       console.log("------------------");
+//       console.log(false && true);
+//       console.log(false && false);
+//       console.log(true && false);
+//       console.log(true && true);
 
-      console.log("----------------");
-      console.log(true || false);
-      console.log(true || true);
-      console.log(false || true);
-      console.log(false || false);
-    }
-    gfg();
+//       console.log("----------------");
+//       console.log(true || false);
+//       console.log(true || true);
+//       console.log(false || true);
+//       console.log(false || false);
+//     }
+//     gfg();
+
+//     //OPTIONAL CHAINING.
+//     const getTotalReviewCount = function(){
+//       let goodreads= book.reviews.goodreads.reviewsCount;
+//       let librarythings= book.reviews.librarything?.reviewsCount ?? 0; // if there is no count, return 0.
+//       return goodreads+librarythings;
+//     }
+//     console.log(getTotalReviewCount(book)); // pass through the array.
+
+const books = getBooks();
+
+// const x =[1,2,3,4,5].map((el)=> el * 2);
+// console.log(x); 
+
+// array map creates a new array and adds elements to it.
+// array map does not change the original array
+const titles=data.map((book)=> book.title);
+console.log(titles);
+const id= books.map((id)=> id.id)
+console.log(id);
+const authur=books.map((author)=>author.author);
+console.log(authur);
+
+const essentialData=data.map((book)=>{
+      return {
+        title: book.title,
+        author: book.author,
+        translations:book.translations
+      }
+})
+console.log(essentialData)
+
+// ARRAY FILTER 
+const longBooks = books.filter((book)=>book.pages>500).filter((book)=>book.hasMovieAdaptation);
+console.log(longBooks);
+
+let shortBooks = books.filter((book)=>book.pages<=500);
+console.log(shortBooks);
+
+// this method works appropriately.
+// const adventureBooks = books
+//       .filter((book)=>book.genres.includes('adventure')
+//       .map((book)=>book.title));
+// adventureBooks
+
+
+// ARRAY REDUCE METHOD.
+// the most versatile method in react.
+const pagesAllBooks=books.reduce((sum, book)=> sum+book.pages, 0);
+console.log(pagesAllBooks);
+
+//ARRAY SORT METHOD.
+// the slice method will ensure that the arr is not modified after sorting.
+const arr=[9,7,3,9,5,1];
+const sorted =arr.slice().sort((a,b)=> a-b);
+console.log(sorted)
+arr;
+
+// more practical
+const sortedByPages=books.slice().sort((a,b)=> a.pages-b.pages);
+console.log(sortedByPages)
+
+//WORKING WITH IMMUTABLE ARRAYS
+const newBook ={
+  id: 6,
+  title:'My programming journey',
+  author: 'Emmanuel Getange'
+};
+const booksAfterAdd=[...data,newBook];
+console.log(booksAfterAdd);
+
+
+// delete a book from the array
+// if the id is not equal to 3 ,then 
+// used to delete objects in an array 
+const booksAfterDelete = booksAfterAdd.filter((book)=>book.id !== 3);
+console.log(booksAfterDelete);
+
+//books after update.
+// we use array map whenever we want to update an object that is inside an array.
+const booksAfterUpdate = booksAfterDelete.map((book)=>book === 1 ? {...data,pages:1} : book);
+console.log(booksAfterUpdate);
