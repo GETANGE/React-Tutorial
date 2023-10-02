@@ -70,16 +70,51 @@ function Header(){
 }
 
 function Menu(){
+    // how to parse properties (props)
     const style={fontSize:"40"}
+    // re-using components  
         return (
-            <div className="menu">
+            <main className="menu">
                 <h2 style={style}>Our Menu</h2>
-                    <Pizza/>
-                    <Focaccia/>
-            </div>
+                    <Pizza 
+                    name='Pizza Prosciutto' 
+                    ingredients='Tomato, mozarella, ham, aragula, and burrata cheese'
+                    photoName="pizzas/prosciutto.jpg"
+                    price={"Ksh "+50}
+                    />
+
+                    <Pizza 
+                    name="Pizza Funghi"
+                    ingredients="Tomato, mushrooms"
+                    photoName="pizzas/funghi.jpg" 
+                    price={"Ksh "+100}
+                    />
+
+                    <Pizza 
+                    name="Pizza Salamino"
+                    ingredients="Tomato, mozarella, and pepperoni"
+                    photoName="pizzas/salamino.jpg" 
+                    // use javascript to write numbers 
+                    price={"Ksh "+10}
+                    />
+            </main>
         )
 }
 
+// receiving properties, we pass them as parameters.
+function Pizza(props){
+    console.log(props)
+    return ( 
+        <div className="pizza">
+            <img src={props.photoName} alt={props.name}></img>
+            <div className="">
+                <h2>{props.name}</h2>
+                <p>{props.ingredients}</p>
+                <span>{props.price}</span>
+            </div>
+        </div>
+    )
+}
 function Footer(){
     const hour=new Date().getHours();
     console.log(hour);
@@ -100,24 +135,6 @@ function Footer(){
         </footer>
 }
 
-function Pizza(){
-    return ( 
-        <div className="menu">
-            <img src="pizzas/prosciutto.jpg" alt="Pizza"></img>
-            <h2>Pizza Prosciutto</h2>
-            <p>Tomato, mozarella, ham, aragula, and burrata cheese</p>
-        </div>
-    )
-}
-function Focaccia() {
-    return(
-        <div className="menu">
-            <img src="pizzas/focaccia.jpg" alt="focaccia"></img>
-            <h2>Focaccia</h2>
-            <p>Bread with italian olive oil and rosemary</p>
-        </div>
-    )
-}
 // THIS IS HOW WE RENDER A ROOT IN REACT.
 // WE MAP THIS FILE TO A TEMPLATE .
 const root =ReactDom.createRoot(document.getElementById("root"));
