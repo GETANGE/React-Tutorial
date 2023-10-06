@@ -71,12 +71,26 @@ function Header(){
 
 function Menu(){
     // how to parse properties (props)
+    const pizza =pizzaData;
+    const numPizzas=pizza.length;
+
     const style={fontSize:"40"}
     // re-using components  
         return (
             <main className="menu">
                 <h2 style={style}>Our Menu</h2>
-                    <Pizza 
+
+{/* condtional rendering with terneries    */}
+                {numPizzas > 0 ? (
+                    <ul className="pizzas">
+                    {/* create new array */}
+                        {pizza.map((pizza)=>(
+                        <Pizza pizzaObj={pizza} key={pizza.name}/>))}
+                    </ul>
+                ): <p>Still under production.Please wait :)</p>}
+
+
+                    {/* <Pizza 
                     name='Pizza Prosciutto' 
                     ingredients='Tomato, mozarella, ham, aragula, and burrata cheese'
                     photoName="pizzas/prosciutto.jpg"
@@ -95,8 +109,8 @@ function Menu(){
                     ingredients="Tomato, mozarella, and pepperoni"
                     photoName="pizzas/salamino.jpg" 
                     // use javascript to write numbers 
-                    price={"Ksh "+10}
-                    />
+                    price={"Ksh "+(10+10)}
+                    /> */}
             </main>
         )
 }
@@ -105,22 +119,22 @@ function Menu(){
 function Pizza(props){
     console.log(props)
     return ( 
-        <div className="pizza">
-            <img src={props.photoName} alt={props.name}></img>
+        <li className="pizza">
+            <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name}></img>
             <div className="">
-                <h2>{props.name}</h2>
-                <p>{props.ingredients}</p>
-                <span>{props.price}</span>
+                <h3>{props.pizzaObj.name}</h3>
+                <p>{props.pizzaObj.ingredients}</p>
+                <span>{props.pizzaObj.price+"/="}</span>
             </div>
-        </div>
+        </li>
     )
 }
 function Footer(){
     const hour=new Date().getHours();
     console.log(hour);
 
-    const openHour=12;
-    const closeHour=22;
+    const openHour=11;
+    const closeHour=21;
     const isOpen =hour >= openHour && hour <= closeHour;
     console.log(isOpen);
 
@@ -129,10 +143,20 @@ function Footer(){
     // }else{
     //     alert("Sorry We're are closed!");
     // } 
-        return <footer>
-            {new Date().toLocaleTimeString()}.
-            We are currently open
-        </footer>
+
+    // 
+        return (
+            <footer className="footer">
+                
+                {/* short circuiting in progress. */}
+                {isOpen ? ( 
+                    <div className="order">
+                        <p>We're open until {closeHour}:00. Come visit us</p>
+                        <button className="btn">Order</button>
+                    </div>          
+                ): <p>We are happy to welcome you between {openHour}:00 AM. to {closeHour}:00 PM </p>}
+            </footer>
+    )
 }
 
 // THIS IS HOW WE RENDER A ROOT IN REACT.
