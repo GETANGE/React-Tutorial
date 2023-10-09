@@ -2,7 +2,7 @@ import React from "react";
 import ReactDom from "react-dom/client";
 import './index.css'
 
-    const pizzaData = [
+const pizzaData = [
         {
         name: "Focaccia",
         ingredients: "Bread with italian olive oil and rosemary",
@@ -80,7 +80,7 @@ function Menu(){
             <main className="menu">
                 <h2 style={style}>Our Menu</h2>
 
-{/* condtional rendering with terneries    */}
+{/* conditional rendering with terneries    */}
                 {numPizzas > 0 ? (
                     <ul className="pizzas">
                     {/* create new array */}
@@ -118,6 +118,12 @@ function Menu(){
 // receiving properties, we pass them as parameters.
 function Pizza(props){
     console.log(props)
+
+    // Conditional rendering with multiple returns.
+    // this 2 retuns cannot happens twice.
+    // works better when rendering an entire component conditionally
+    if(props.pizzaObj.soldOut) return null;
+    
     return ( 
         <li className="pizza">
             <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name}></img>
@@ -144,21 +150,31 @@ function Footer(){
     //     alert("Sorry We're are closed!");
     // } 
 
-    // 
+    // Conditional rendering with multiple returns.
+    // this 2 retuns cannot happens twice.
+    // works better when rendering an entire component conditionally
+    // if(!isOpen) return <p>CLOSED</p>;
+
         return (
             <footer className="footer">
                 
                 {/* short circuiting in progress. */}
                 {isOpen ? ( 
-                    <div className="order">
-                        <p>We're open until {closeHour}:00. Come visit us</p>
-                        <button className="btn">Order</button>
-                    </div>          
+                    <Order closeHour={closeHour}/>
                 ): <p>We are happy to welcome you between {openHour}:00 AM. to {closeHour}:00 PM </p>}
             </footer>
     )
 }
 
+// EXTRACTING JSX INTO A NEW COMPONENT.
+function Order(props){
+    return(
+        <div className="order">
+            <p>We're open until {props.closeHour}:00. Come visit us</p>
+            <button className="btn">Order</button>
+        </div> 
+    )
+}
 // THIS IS HOW WE RENDER A ROOT IN REACT.
 // WE MAP THIS FILE TO A TEMPLATE .
 const root =ReactDom.createRoot(document.getElementById("root"));
