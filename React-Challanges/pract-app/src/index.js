@@ -2,6 +2,38 @@ import react from 'react';
 import ReactDom from 'react-dom/client';
 import './index.css';
 
+const skills=[
+    {
+        skill:"HTML+CSS",
+        level:"Advanced",
+        color:"#2662EA",
+        className:"html",
+    },
+    {
+        skill:"JavaScript",
+        level:"Advanced",
+        color:"#EFD81D",
+        className:"javascript",
+    },
+    {
+        skill:"Web Design",
+        level:"Advanced",
+        color:"#C3DCAF",
+        className:"design",
+    },
+    {
+        skill:"Git and Github",
+        level:"Advanced",
+        color:"#E84F33",
+        className:"design",
+    },
+    {
+        skill:"React",
+        level:"Advanced",
+        color:"#60DAFB",
+        className:"react"
+    }
+]
 function App(){
     return (
         <div>
@@ -17,14 +49,9 @@ function Card(){
         image="picture/image.jpg"
         name ="Emmanuel Getange"
         description="I'm a Full-stack Web developer. Master modern React from beginner to advanced! Context API, React Query, Redux Toolkit, Tailwind, advanced patterns"
-        html="HTML+CSS"
-        design="Web Design"
-        javascript="Javascript"
-        git="Git and Github"
-        react="React Js"
         />
     )
-}
+    }
 // component  to create a profile card
 function Profile(props){
     return (
@@ -38,11 +65,9 @@ function Profile(props){
                     <h2>{props.name}</h2>
                     <p className='main-siezing'>{props.description}</p>
                     <div className='inline'>
-                        <p className='html'>{props.html}</p>
-                        <p className='javascript'>{props.javascript}</p>
-                        <p className='design'>{props.design}</p>
-                        <p className='git'>{props.git}</p>
-                        <p className='react'>{props.react}</p>
+                        {skills.map((skill, index)=>(
+                            <p key={index} className='{skill.className}'>{skill.skill}</p>
+                        ))}
                     </div>
                 </div>
             </div>

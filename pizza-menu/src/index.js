@@ -70,7 +70,7 @@ function Header(){
 }
 
 function Menu(){
-    // how to parse properties (props)
+    // how to parse properties (
     const pizza =pizzaData;
     const numPizzas=pizza.length;
 
@@ -82,11 +82,16 @@ function Menu(){
 
 {/* conditional rendering with terneries    */}
                 {numPizzas > 0 ? (
-                    <ul className="pizzas">
-                    {/* create new array */}
-                        {pizza.map((pizza)=>(
-                        <Pizza pizzaObj={pizza} key={pizza.name}/>))}
-                    </ul>
+         //react fragments lets us group together elements without leaving any trace in the html tree }
+                    <React.Fragment>
+                        <p>Authrntic Italian cuisine. 6 creative dishes to choose from. All from our stone oven, all organic, all delicious.</p>
+                        <ul className="pizzas">
+                        {/* create new array */}
+                            {pizza.map((pizza)=>(
+                            <Pizza pizzaObj={pizza} key={pizza.name}/>))}
+                        </ul>
+                    </React.Fragment>
+
                 ): <p>Still under production.Please wait :)</p>}
 
 
@@ -116,30 +121,40 @@ function Menu(){
 }
 
 // receiving properties, we pass them as parameters.
-function Pizza(props){
-    console.log(props)
+
+// destructuring properties
+function Pizza({pizzaObj}){
+    console.log(pizzaObj)
 
     // Conditional rendering with multiple returns.
     // this 2 retuns cannot happens twice.
     // works better when rendering an entire component conditionally
-    if(props.pizzaObj.soldOut) return null;
+    // if(pizzaObj.soldOut) return null;
     
     return ( 
-        <li className="pizza">
-            <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name}></img>
+        //  setting Classes and text conditionally
+        <li className={`pizza ${pizzaObj.soldOut ? "sold-out": ""}`}> 
+            <img src={pizzaObj.photoName} alt={pizzaObj.name}></img>
             <div className="">
-                <h3>{props.pizzaObj.name}</h3>
-                <p>{props.pizzaObj.ingredients}</p>
-                <span>{props.pizzaObj.price+"/="}</span>
+                <h3>{pizzaObj.name}</h3>
+                <p>{pizzaObj.ingredients}</p>
+{/* 
+                {pizzaObj.soldOut ? (
+                        <span>SOLD OUT</span>
+                    ): 
+                        (<span>{pizzaObj.price+"/="}</span>)} */}
+
+                <span>{pizzaObj.soldOut ? "Sold Out" :pizzaObj.price+"/="}</span>
             </div>
         </li>
     )
 }
 function Footer(){
     const hour=new Date().getHours();
+    const minutes=30;
     console.log(hour);
 
-    const openHour=11;
+    const openHour=10;
     const closeHour=21;
     const isOpen =hour >= openHour && hour <= closeHour;
     console.log(isOpen);
@@ -160,17 +175,17 @@ function Footer(){
                 
                 {/* short circuiting in progress. */}
                 {isOpen ? ( 
-                    <Order closeHour={closeHour}/>
-                ): <p>We are happy to welcome you between {openHour}:00 AM. to {closeHour}:00 PM </p>}
+                    <Order closeHour={closeHour} openHour={openHour}/> // multiple props are defined independently.
+                ): <p>We are happy to welcome you between {openHour}:00 AM. to {closeHour}:{minutes} PM </p>}
             </footer>
     )
 }
 
 // EXTRACTING JSX INTO A NEW COMPONENT.
-function Order(props){
+function Order({closeHour, openHour}){ // parameters symbolizes distructuring.
     return(
         <div className="order">
-            <p>We're open until {props.closeHour}:00. Come visit us</p>
+            <p>We're open from {openHour}:00 AM to {closeHour}:00 PM Come visit us</p>
             <button className="btn">Order</button>
         </div> 
     )
