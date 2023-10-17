@@ -1,79 +1,92 @@
-import react from 'react';
-import ReactDom from 'react-dom/client';
-import './index.css';
+import react from "react";
+import ReactDom from "react-dom/client";
+import "./index.css";
 
-const skills=[
+    const skills = [
     {
-        skill:"HTML+CSS",
-        level:"Advanced",
-        color:"#2662EA",
-        className:"html",
+        skill: "HTML+CSS",
+        level: "advanced",
+        color: "#2662EA"
     },
     {
-        skill:"JavaScript",
-        level:"Advanced",
-        color:"#EFD81D",
-        className:"javascript",
+        skill: "JavaScript",
+        level: "advanced",
+        color: "#EFD81D"
     },
     {
-        skill:"Web Design",
-        level:"Advanced",
-        color:"#C3DCAF",
-        className:"design",
+        skill: "Web Design",
+        level: "intermediate",
+        color: "#C3DCAF"
     },
     {
-        skill:"Git and Github",
-        level:"Advanced",
-        color:"#E84F33",
-        className:"design",
+        skill: "Git and GitHub",
+        level: "intermediate",
+        color: "#E84F33"
     },
     {
-        skill:"React",
-        level:"Advanced",
-        color:"#60DAFB",
-        className:"react"
+        skill: "React",
+        level: "beginner",
+        color: "#60DAFB"
     }
-]
-function App(){
+    ];
+
+    function App() {
     return (
-        <div>
-            <Card/>
+        <div className="card">
+            <Avatar />
+        <div className="data">
+            <Intro />
+            <SkillList />
         </div>
-    )
-
-}
-// parsing props 
-function Card(){
-    return (
-        <Profile
-        image="picture/image.jpg"
-        name ="Emmanuel Getange"
-        description="I'm a Full-stack Web developer. Master modern React from beginner to advanced! Context API, React Query, Redux Toolkit, Tailwind, advanced patterns"
-        />
-    )
+        </div>
+    );
     }
-// component  to create a profile card
-function Profile(props){
-    return (
-        <main>
-            <h2>Profile Card</h2>
-            <div className='main-container'>
-                <div className='main-siezing'>
-                    <img src={props.image} alt={props.name} className='main-image'></img>
-                </div>
-                <div className='main-description'>
-                    <h2>{props.name}</h2>
-                    <p className='main-siezing'>{props.description}</p>
-                    <div className='inline'>
-                        {skills.map((skill, index)=>(
-                            <p key={index} className='{skill.className}'>{skill.skill}</p>
-                        ))}
-                    </div>
-                </div>
+
+    function Avatar() {
+        return (
+            <div>
+                <img className="avatar" src="Image.jpg" alt="Emmanuel Getange" />
             </div>
-        </main>
-    )
-}
+        )
+    }
+
+    function Intro() {
+        return (
+            <div>
+                <h1>Emmanuel Getange</h1>
+                <p>
+                    Full-stack web developer and teacher at Udemy. When not coding or
+                    preparing a course, I like to play board games, to cook (and eat), or to
+                    just enjoy the Portuguese sun at the beach.
+                </p>
+            </div>
+        );
+    }
+
+function SkillList() {
+        return (
+            <div className="skill-list">
+                {skills.map((skill) => (
+                    // extracting JSX into new components
+                    <Skill skill={skill.skill} color={skill.color} level={skill.level} key={skill.skill} /> // skill, color and level are properties assigned to Skill Component
+                ))}
+            </div>
+        );
+    }
+
+function Skill({skill, color, level}){
+        const style={backgroundColor: color};
+        return (
+            <div className="skill" style={style}>
+                <p>{skill}</p>
+                <p>
+                    {level === 'beginner' && '👶'}
+                    {level === 'intermediate' && '👍'}
+                    {level === 'advanced' && '💪'}
+                </p>
+            </div>
+        )
+    }
 const root = ReactDom.createRoot(document.getElementById('root'));
 root.render(
         <react.StrictMode>
