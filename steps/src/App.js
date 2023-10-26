@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { sculptureList } from "./data.js";
 const messages=[
     "Learn React ",
     "Apply Jobs",
@@ -24,7 +24,18 @@ export default function App(){
         setStep(step+1)
       }
   }
+
+  // why a regular variable isn't enough.
+  //adding a state variable.
+  const[index, setIndex]= useState(0)
+
+  function handleClicks(){
+    setIndex(index + 1);
+  }
+
+  let sculpture = sculptureList[index]
     return (
+      <>
       <div className="steps">
         <div className="numbers">
           <div className={step>=1 ? 'active': ""}>1</div>
@@ -42,5 +53,18 @@ export default function App(){
             onClick={handleNext}>Next</button>
         </div>
       </div>
+
+      <button onClick={handleClicks}>Next</button>
+      <h2>
+        <i>{sculpture.name}</i>
+        <h6>by {sculpture.artist}</h6>
+      </h2>
+      <h6>({index+1} of {sculptureList.length})</h6>
+      <img 
+      src={sculpture.url}
+      alt={sculpture.alt}/>
+
+      <p>{sculpture.description}</p>
+      </>
     )
 }
