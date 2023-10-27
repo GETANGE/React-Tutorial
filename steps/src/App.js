@@ -27,10 +27,15 @@ export default function App(){
 
   // why a regular variable isn't enough.
   //adding a state variable.
-  const[index, setIndex]= useState(0)
+  const[index, setIndex]= useState(0);
+  const [showMore, setShowMore]=useState(false);
 
   function handleClicks(){
     setIndex(index + 1);
+  }
+
+  function handleClickMore(){
+    setShowMore(!showMore);
   }
 
   let sculpture = sculptureList[index]
@@ -60,11 +65,14 @@ export default function App(){
         <h6>by {sculpture.artist}</h6>
       </h2>
       <h6>({index+1} of {sculptureList.length})</h6>
+        <button onClick={handleClickMore}>
+          {showMore ? 'Hide' : 'Show'} details
+        </button><br></br>
       <img 
       src={sculpture.url}
       alt={sculpture.alt}/>
 
-      <p>{sculpture.description}</p>
+      {showMore && <p>{sculpture.description}</p>}
       </>
     )
 }
