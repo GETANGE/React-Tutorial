@@ -8,7 +8,9 @@ const messages=[
 
 export default function App(){
   // using states in components
-  const [step, setStep]=useState(1) ;
+  const[step, setStep]=useState(1);
+  const[isOpen, setIsOpen]=useState(true);
+  // const[test, setTest]= useState({name:'Emmanuel'});
 
 //   console.log(arr) ;
 //  const  step=1
@@ -21,8 +23,10 @@ export default function App(){
     }
     function  handleNext(){
       if(step<3){
-        setStep(step+1)
+        setStep(step+1);
+
       }
+      // setTest({ name:'Jacob kapyengan'});
   }
 
   // why a regular variable isn't enough.
@@ -41,7 +45,10 @@ export default function App(){
   let sculpture = sculptureList[index]
     return (
       <>
-      <div className="steps">
+      <div>
+        <button className="close" onClick={()=>{setIsOpen(!isOpen)}}>&times;</button>
+
+        {isOpen && (<div className="steps">
         <div className="numbers">
           <div className={step>=1 ? 'active': ""}>1</div>
           <div className={step>=2 ? 'active': ""}>2</div>
@@ -57,8 +64,11 @@ export default function App(){
           <button style={{backgroundColor:'#7950f2', color:'#fff'}} 
             onClick={handleNext}>Next</button>
         </div>
+        </div>
+      )}
       </div>
 
+      <div>
       <button onClick={handleClicks}>Next</button>
       <h2>
         <i>{sculpture.name}</i>
@@ -73,6 +83,7 @@ export default function App(){
       alt={sculpture.alt}/>
 
       {showMore && <p>{sculpture.description}</p>}
+      </div>
       </>
     )
 }
