@@ -45,6 +45,16 @@ export default function App(){
   let sculpture = sculptureList[index]
     return (
       <>
+
+      
+      {/* //passing properties using the (DOCUMENTATION) */}
+      <PassingProps
+        person="Emmanuel Getange"
+        profession="Fullstack Web Developer"
+        size="100"
+      />
+
+
       <div>
         <button className="close" onClick={()=>{setIsOpen(!isOpen)}}>&times;</button>
 
@@ -85,5 +95,23 @@ export default function App(){
       {showMore && <p>{sculpture.description}</p>}
       </div>
       </>
+
+
+    )
+}
+
+// using of props in react (DOCUMENTATION)
+function PassingProps(props){
+  console.log(props)
+    return(
+      <div>
+        <img
+          className="Avatar"
+          alt={props.person}
+          width={props.size}
+          height={props.size}
+          title={props.title}
+        />
+      </div>
     )
 }
