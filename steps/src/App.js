@@ -40,8 +40,9 @@ export default function App() {
   let sculpture = sculptureList[index];
   return (
     <>
+      {/* // using of props in react (DOCUMENTATION)
+  // USING METHOD 1: Passing props to the child component */}
       <div>
-        {/* //passing properties using the (DOCUMENTATION) */}
         <PassingProps
           person="Emmanuel Getange"
           profession="Fullstack Web Developer"
@@ -111,6 +112,7 @@ export default function App() {
 }
 
 // using of props in react (DOCUMENTATION)
+// USING METHOD 1: Passing props to the child component
 function PassingProps(props) {
   console.log(props);
   return (
