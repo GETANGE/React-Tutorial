@@ -1,5 +1,6 @@
 import React from 'react';
 import  ReactDOM  from 'react-dom/client';
+import './index.css';
 
     const pizzaData = [
         {
@@ -49,7 +50,7 @@ import  ReactDOM  from 'react-dom/client';
 
 function App() {
     return (
-        <div>
+        <div className='container'>
             <Header />
             <Menu />
             <Footer />
@@ -58,15 +59,42 @@ function App() {
 }
 // creating a new instance of components
 function Header() {
+    //const style={color: 'goldenrod', fontSize:"48px", textTransform: "uppercase"}
     return (
-        <h2 style={{color: 'goldenrod'}}>React Fast Food</h2>
+        <header className='header'>
+            <h1 style={{}} >React Fast Food co.</h1>
+        </header>
     )
 }
 
 function Menu() {
     return (
+        <main className='menu'>
+            <h2>Our Menu</h2>
+            <Pizza 
+                name="Pizza Spinaci"
+                ingredients="Tomato and mozarella"
+                photoName="pizzas/salamino.jpg"
+                price={10}
+            />
+            <Pizza 
+                name="Pizza Salamino"
+                ingredients="Tomato, mozarella, and pepperoni"
+                photoName="pizzas/prosciutto.jpg"
+                price={15}
+            />
+        </main>
+    )
+}
+
+function Pizza(props) {
+    console.log(props)
+    return (
         <div>
-            <Pizza/>
+            <img src={props.photoName} alt={props.name}/>
+            <h3>{props.name}</h3>
+            <p>{props.ingredients}</p>
+            <p>{props.price +5}</p>
         </div>
     )
 }
@@ -85,21 +113,13 @@ function Footer() {
     // }
 
     return (
-        <div>
+        <div className='footer'>
             <p>{new Date().toLocaleString()}. We're Open</p>
         </div>
     );
 }
 
-function Pizza() {
-    return (
-        <div>
-            <img src='pizzas/spinaci.jpg' alt='spinaci'/>
-            <h3>Pizza Spinaci</h3>
-            <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-        </div>
-    )
-}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
