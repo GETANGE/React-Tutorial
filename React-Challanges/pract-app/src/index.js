@@ -1,6 +1,7 @@
 import react from "react";
 import ReactDom from "react-dom/client";
 import Profile from "./profile";
+import { Profile1 } from "./profile";
 import "./index.css";
 
     const skills = [
@@ -32,15 +33,17 @@ import "./index.css";
     ];
 
     function App() {
-    return (
-        <div className="card">
-            <Avatar />
-        <div className="data">
-            <Intro />
-            <SkillList />
-        </div>
-        <Profile/>
-        </div>
+        return (
+            <div className="card">
+                <Avatar />
+            <div className="data">
+                <Intro />
+                <SkillList />
+            </div>
+            <Profile/>
+            <Profile1 />
+            </div>
+            
     );
     }
 
