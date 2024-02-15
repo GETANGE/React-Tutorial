@@ -1,5 +1,6 @@
 import react from "react";
 import ReactDom from "react-dom/client";
+import Profile from "./profile";
 import "./index.css";
 
     const skills = [
@@ -38,6 +39,7 @@ import "./index.css";
             <Intro />
             <SkillList />
         </div>
+        <Profile/>
         </div>
     );
     }
@@ -45,7 +47,7 @@ import "./index.css";
     function Avatar() {
         return (
             <div>
-                <img className="avatar" src="Image.jpg" alt="Emmanuel Getange" />
+                <img className="avatar" src="https://i.imgur.com/QIrZWGIs.jpg" alt="Emmanuel Getange" />
             </div>
         )
     }
