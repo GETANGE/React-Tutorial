@@ -2,6 +2,7 @@ import react from "react";
 import ReactDom from "react-dom/client";
 import Profile from "./profile";
 import { Profile1 } from "./profile";
+import { TodoList} from "./profile";
 import "./index.css";
 
     const skills = [
@@ -42,6 +43,7 @@ import "./index.css";
             </div>
             <Profile/>
             <Profile1 />
+            <TodoList />
             </div>
             
     );
