@@ -3,6 +3,7 @@ import ReactDom from "react-dom/client";
 import Profile from "./profile";
 import { Profile1 } from "./profile";
 import { TodoList} from "./profile";
+import { ProfileComponent } from "./profile";
 import "./index.css";
 
     const skills = [
@@ -44,6 +45,21 @@ import "./index.css";
             <Profile/>
             <Profile1 />
             <TodoList />
+            <ProfileComponent 
+                person ={
+                    {
+                        src: "https://i.imgur.com/7vQD0fPs.jpg",
+                        alt: "<NAME>",
+                    }
+                }
+                size={
+                    {
+                        width: 100,
+                        height: 100
+                    }
+                }
+                />
+
             </div>
             
     );

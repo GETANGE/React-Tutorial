@@ -49,7 +49,7 @@ export function TodoList(){
         name: 'Emmanuel',
         profession: 'Fullstack Web Developer',
         size: '23',
-        
+
         // theme and listing are objects
         theme: {
             backgroundColor: 'aqua',
@@ -61,19 +61,38 @@ export function TodoList(){
         }
     }
     return(
-        <Fragment style={person.theme}>
-            <h1>{person.name}'s Todos</h1>
-            <img
-                src="https://i.imgur.com/7vQD0fPs.jpg"
-                alt="Gregorio Y. Zara"
-            />
-            <p>My profession is am a {person.profession}</p>
-            <p>My age is {person.size} years</p>
-            <ul style={person.listing}>
-                <li>Improve the videophone</li>
-                <li>Prepare aeronautics lectures</li>
-                <li>Work on the alcohol-fuelled engine</li>
-            </ul>
+        <Fragment >
+            <div style={person.theme}>
+                <h1>{person.name}'s Todos</h1>
+                <img
+                    src="https://i.imgur.com/7vQD0fPs.jpg"
+                    alt="Gregorio Y. Zara"
+                />
+                <p>My profession is am a {person.profession}</p>
+                <p>My age is {person.size} years</p>
+                <ul style={person.listing}>
+                    <li>Improve the videophone</li>
+                    <li>Prepare aeronautics lectures</li>
+                    <li>Work on the alcohol-fuelled engine</li>
+                </ul>
+            </div>
         </Fragment>
+    )
+}
+
+export function ProfileComponent({person, size}){
+    const borderRadius ={
+        theme: {
+            borderRadius: '50%'
+        }
+    }
+    return(
+        <img
+            src={person.src}
+            alt={person.alt}
+            width={size.width}
+            height={size.height}
+            style={borderRadius.theme}
+        />
     )
 }
