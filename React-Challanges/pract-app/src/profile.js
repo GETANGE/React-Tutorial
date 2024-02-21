@@ -81,6 +81,9 @@ export function TodoList(){
 }
 
 export function ProfileComponent({person, size}){
+    const {src, alt="alternative"} = person;
+    const {width, height }= size;
+
     const borderRadius ={
         theme: {
             borderRadius: '50%'
@@ -88,10 +91,10 @@ export function ProfileComponent({person, size}){
     }
     return(
         <img
-            src={person.src}
-            alt={person.alt}
-            width={size.width}
-            height={size.height}
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
             style={borderRadius.theme}
         />
     )
