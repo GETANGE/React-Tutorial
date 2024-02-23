@@ -99,3 +99,15 @@ export function ProfileComponent({person, size}){
         />
     )
 }
+
+// props syntax destructuring
+export function ProfileComponent2(props){
+    return (
+        <>
+            <h2>My small details</h2>
+            <p>My name is {props.person}</p>
+            <p>My age is {props.size}</p>
+            <p>I'm dating a {props.tribe} guy</p>
+        </>
+    )
+}

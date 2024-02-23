@@ -4,6 +4,7 @@ import Profile from "./profile";
 import { Profile1 } from "./profile";
 import { TodoList} from "./profile";
 import { ProfileComponent } from "./profile";
+import { ProfileComponent2 } from "./profile";
 import "./index.css";
 
     const skills = [
@@ -60,6 +61,12 @@ import "./index.css";
                 }
                 />
 
+            <ProfileComponent2
+                person='JoyElizabeth Muthoni'
+                size= {23}
+                isSepia= {true}
+                tribe = 'Kisii'
+            />
             </div>
             
     );
