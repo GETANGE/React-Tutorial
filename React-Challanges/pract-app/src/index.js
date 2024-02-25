@@ -5,6 +5,7 @@ import { Profile1 } from "./profile";
 import { TodoList} from "./profile";
 import { ProfileComponent } from "./profile";
 import { ProfileComponent2 } from "./profile";
+import { ProfileComponent3 } from "./profile";
 import "./index.css";
 
     const skills = [
@@ -67,10 +68,16 @@ import "./index.css";
                 isSepia= {true}
                 tribe = 'Kisii'
             />
+            <ProfileComponent3
+                person='Emmanuel Getange'
+                // size= {23}
+                isSepia= {true}
+                tribe = 'Kisii'
+            />
             </div>
             
     );
-    }
+}
 
     function Avatar() {
         return (

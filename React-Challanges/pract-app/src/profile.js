@@ -111,3 +111,14 @@ export function ProfileComponent2(props){
         </>
     )
 }
+
+// Specifying a default value for a prop
+export function ProfileComponent3({person, size= 22, tribe}){
+    return (
+        <>
+            <p>My name is {person}</p>
+            <p> My age is {size}</p>
+            <p> My tribe is {tribe}</p>
+        </>
+    )
+}
