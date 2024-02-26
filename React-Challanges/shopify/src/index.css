@@ -16,7 +16,6 @@ body{
 .Nav-bar li:hover{
     cursor: pointer;
     color: orangered;
-    font-size: 25px;
 }
 .button{
     background-color: orangered;
@@ -29,20 +28,50 @@ body{
     margin-top: 30px;
     margin-left: 200px;
 }
+.button2{
+    background-color: orangered;
+    padding: 13px;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border-style: none;
+    text-align: center;
+    margin-left: 200px;
+}
 .button:hover{
     cursor: pointer;
     background-color: whitesmoke;
+}
+.button2:hover{
+    cursor: pointer;
+    background-color: white;
 }
 .navbar-top{
     display: flex;
     place-content: center;
 }
 .first-div{
-    width: 200px;
-    height: 200px;
-    background-color: antiquewhite;
+    width: 300px;
+    height: 490px;
+    background-color: whitesmoke;
+    align-items: center;
+    border-radius: 20px;
+    padding: 20px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.second-div{
+    margin: 20px ;
+    margin-left: 30px;
 }
 .image{
     width: 200px;
     height: 200px;
+    border-radius: 30px;
+}
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
