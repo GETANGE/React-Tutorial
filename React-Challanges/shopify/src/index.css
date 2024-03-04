@@ -41,10 +41,12 @@ body{
 .button:hover{
     cursor: pointer;
     background-color: whitesmoke;
+    color: orangered;
 }
 .button2:hover{
     cursor: pointer;
     background-color: white;
+    color: orangered;
 }
 .navbar-top{
     display: flex;
