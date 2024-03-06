@@ -147,3 +147,24 @@ export function Item3({name, isPacked}){
         </li>
     )
 }
+
+// conditionally (AND) operator
+export function Item4({name, isPacked}){
+    return (
+        <li>
+            {name}{isPacked && '✔'}
+        </li>
+    )
+}
+
+// Conditionally assigning JSX to a variable 
+export function Item5({name, isPacked}){
+    let itemContent = name;
+
+    if(isPacked){
+        itemContent = name + '✔';
+    }
+    return (
+        <li>{itemContent}</li>
+    )
+}

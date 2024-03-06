@@ -9,6 +9,8 @@ import { ProfileComponent3 } from "./profile";
 import { Item } from "./profile";
 import { Item2 } from "./profile";
 import { Item3 } from "./profile";
+import { Item4 } from "./profile";
+import { Item5 } from "./profile";
 import "./index.css";
 
     const skills = [
@@ -108,6 +110,22 @@ function PackingList(){
                     <Item3
                         name = "Fullstack Developer"
                         isPacked={false}
+                    />
+                    <Item4
+                        name = "Backend Developer"
+                        isPacked={true}
+                    />
+                    <Item4
+                        name = "Fullstack Developer"
+                        isPacked={false}
+                    />
+                    <Item5
+                        name = "Fullstack Developer"
+                        isPacked={false}
+                    />
+                    <Item5
+                        name = "Fullstack Developer"
+                        isPacked={true}
                     />
                 </ul>
             </section>

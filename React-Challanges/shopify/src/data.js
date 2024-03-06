@@ -51,7 +51,7 @@ function Pizza(props) {
     const {photoName, price, ingredients, name, soldOut} = props
 
     if(soldOut){
-        return <div></div>
+        return null
     }else{
         return(
             <div className="first-div">
