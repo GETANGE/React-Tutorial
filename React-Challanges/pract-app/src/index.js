@@ -6,6 +6,9 @@ import { TodoList} from "./profile";
 import { ProfileComponent } from "./profile";
 import { ProfileComponent2 } from "./profile";
 import { ProfileComponent3 } from "./profile";
+import { Item } from "./profile";
+import { Item2 } from "./profile";
+import { Item3 } from "./profile";
 import "./index.css";
 
     const skills = [
@@ -74,9 +77,42 @@ import "./index.css";
                 isSepia= {true}
                 tribe = 'Kisii'
             />
+
+            <PackingList />
             </div>
             
     );
+}
+
+function PackingList(){
+    return(
+        <>
+            <section>
+                <ul>
+                    <Item
+                        name = "Emmanuel Getange"
+                        isPacked={true}
+                    />
+                    <Item
+                        name = "Backend Developer"
+                        isPacked={false}
+                    />
+                    <Item2
+                        name = "Emmanuel Getange"
+                        isPacked={true}
+                    />
+                    <Item2
+                        name = "Backend Developer"
+                        isPacked={true}
+                    />
+                    <Item3
+                        name = "Fullstack Developer"
+                        isPacked={false}
+                    />
+                </ul>
+            </section>
+        </>
+    )
 }
 
     function Avatar() {

@@ -122,3 +122,28 @@ export function ProfileComponent3({person, size= 22, tribe}){
         </>
     )
 }
+
+// Conditional Rendering
+export function Item({name, isPacked}){
+    if(isPacked){
+        return <li>{name}✔</li>
+    }
+    return <li>{name}</li>
+}
+
+// Conditionally returning nothing with null
+export function Item2({name, isPacked}){
+    if(isPacked){
+        return null;
+    }
+    return <li>{name}✔</li>
+}
+
+// conditionally(ternary) operator (? :)
+export function Item3({name, isPacked}){
+    return (
+        <li>
+            {isPacked ?( <del> {name + '✔'} </del>) : (name)}
+        </li>
+    )
+}
