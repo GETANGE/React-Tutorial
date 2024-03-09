@@ -11,6 +11,7 @@ import { Item2 } from "./profile";
 import { Item3 } from "./profile";
 import { Item4 } from "./profile";
 import { Item5 } from "./profile";
+import { List } from "./profile";
 import "./index.css";
 
     const skills = [
@@ -43,46 +44,48 @@ import "./index.css";
 
     function App() {
         return (
-            <div className="card">
-                <Avatar />
-            <div className="data">
-                <Intro />
-                <SkillList />
-            </div>
-            <Profile/>
-            <Profile1 />
-            <TodoList />
-            <ProfileComponent 
-                person ={
-                    {
-                        src: "https://i.imgur.com/7vQD0fPs.jpg",
-                        alt: "<NAME>",
+            <>
+                <div className="card">
+                    <Avatar />
+                <div className="data">
+                    <Intro />
+                    <SkillList />
+                </div>
+                <Profile/>
+                <Profile1 />
+                <TodoList />
+                <ProfileComponent 
+                    person ={
+                        {
+                            src: "https://i.imgur.com/7vQD0fPs.jpg",
+                            alt: "<NAME>",
+                        }
                     }
-                }
-                size={
-                    {
-                        width: 100,
-                        height: 100
+                    size={
+                        {
+                            width: 100,
+                            height: 100
+                        }
                     }
-                }
+                    />
+
+                <ProfileComponent2
+                    person='JoyElizabeth Muthoni'
+                    size= {23}
+                    isSepia= {true}
+                    tribe = 'Kisii'
+                />
+                <ProfileComponent3
+                    person='Emmanuel Getange'
+                    // size= {23}
+                    isSepia= {true}
+                    tribe = 'Kisii'
                 />
 
-            <ProfileComponent2
-                person='JoyElizabeth Muthoni'
-                size= {23}
-                isSepia= {true}
-                tribe = 'Kisii'
-            />
-            <ProfileComponent3
-                person='Emmanuel Getange'
-                // size= {23}
-                isSepia= {true}
-                tribe = 'Kisii'
-            />
-
-            <PackingList />
-            </div>
-            
+                <PackingList />
+                </div>
+                <List/>
+            </>
     );
 }
 
