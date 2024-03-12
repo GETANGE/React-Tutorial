@@ -12,6 +12,7 @@ import { Item3 } from "./profile";
 import { Item4 } from "./profile";
 import { Item5 } from "./profile";
 import { List } from "./profile";
+import { List2 } from "./profile";
 import "./index.css";
 
     const skills = [
@@ -85,6 +86,7 @@ import "./index.css";
                 <PackingList />
                 </div>
                 <List/>
+                <List2/>
             </>
     );
 }
