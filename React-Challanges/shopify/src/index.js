@@ -8,6 +8,7 @@ export default function App(){
         <>
             <NavigationBar/>
             <Menu />
+            <Footer/>
         </>
     )
 }
@@ -30,7 +31,11 @@ export function NavigationBar(){
 
 export function Footer(){
     return(
-        <></>
+        <>
+            <div className='footer'>
+            <p>© 2024</p>
+            </div>
+        </>
     )
 }
 const root = ReactDom.createRoot(document.getElementById('root'));

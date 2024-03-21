@@ -13,6 +13,8 @@ import { Item4 } from "./profile";
 import { Item5 } from "./profile";
 import { List } from "./profile";
 import { List2 } from "./profile";
+import { Recipe } from "./profile";
+import { CupList } from "./profile";
 import "./index.css";
 
     const skills = [
@@ -87,8 +89,28 @@ import "./index.css";
                 </div>
                 <List/>
                 <List2/>
+                <Pure/>
+                <CupList/>
             </>
     );
+}
+
+function Pure(){
+  const style = "margin-top: 10px";
+    return(
+        <>
+            <section style={{style}}>
+                <h2 style={{style}}>For two:</h2>
+                <Recipe 
+                    drinkers={2}
+                 />
+                 <h2>For four:</h2>
+                 <Recipe 
+                    drinkers={4}
+                 />
+            </section>
+        </>
+    )
 }
 
 function PackingList(){

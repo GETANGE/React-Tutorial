@@ -179,7 +179,7 @@ const people = [
     ];
 
 export function List(){
-    const listItem= people.map((person) => <li>{person}</li>)
+    const listItem= people.map((person) => <li key={person.id}>{person}</li>)
 
     return(
         <ul>
@@ -228,13 +228,14 @@ export function List2(){
     )
     // map through the list of people
     const listItem = profession.map((person) =>
-        <li>
+        <li key={person.id}>
             <img
                 src={person.imageId}
                 alt={person.name}
             />
             <p>{person.name}</p>
             <p>{person.profession}</p>
+            <p>{person.accomplishment}</p>
         </li>
     )
     return(
@@ -242,4 +243,30 @@ export function List2(){
             {listItem}
         </ul>
     )
+}
+
+// Keeping components pure
+export function Recipe({ drinkers }) {
+    return (
+      <ol>    
+        <li>Boil {drinkers} cups of water.</li>
+        <li>Add {drinkers} spoons of tea and {0.5 * drinkers} spoons of spice.</li>
+        <li>Add {0.5 * drinkers} cups of milk to boil and sugar to taste.</li>
+      </ol>
+    );
+  }
+
+function Cup({guest}) {
+    return(
+        <p>This cup is for the guest number {guest}</p>
+    )
+}
+
+export function CupList(){
+    let cup = [];
+
+    for(let i=1; i< 10; i++){
+        cup.push(<Cup key={i} guest={i} />);
+    }
+    return cup;
 }
