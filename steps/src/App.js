@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { sculptureList } from "./data.js";
-const messages = ["Learn React ", "Apply Jobs", "Invest your new income"];
+const messages = ["Learn React ⚛ ", "Apply Jobs 👜", "Invest your new income 💸"];
 
 export default function App() {
   // using states in components
@@ -14,12 +14,14 @@ export default function App() {
   // adding event handlers in react component
   function handlePrevious() {
     if (step > 1) {
-      setStep(step - 1);
+      // updating state on currentState
+      setStep((currentStep)=>currentStep-1);
     }
   }
   function handleNext() {
     if (step < 3) {
-      setStep(step + 1);
+      setStep((step)=>step + 1);
+      setStep((step)=>step + 1);
     }
     // setTest({ name:'Jacob kapyengan'});
   }

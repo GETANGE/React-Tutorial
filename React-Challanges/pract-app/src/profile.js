@@ -248,13 +248,13 @@ export function List2(){
 // Keeping components pure
 export function Recipe({ drinkers }) {
     return (
-      <ol>    
-        <li>Boil {drinkers} cups of water.</li>
-        <li>Add {drinkers} spoons of tea and {0.5 * drinkers} spoons of spice.</li>
-        <li>Add {0.5 * drinkers} cups of milk to boil and sugar to taste.</li>
-      </ol>
+        <ol>    
+            <li>Boil {drinkers} cups of water.</li>
+            <li>Add {drinkers} spoons of tea and {0.5 * drinkers} spoons of spice.</li>
+            <li>Add {0.5 * drinkers} cups of milk to boil and sugar to taste.</li>
+        </ol>
     );
-  }
+}
 
 function Cup({guest}) {
     return(
@@ -269,4 +269,39 @@ export function CupList(){
         cup.push(<Cup key={i} guest={i} />);
     }
     return cup;
+}
+
+//ADDING INTERACTIVITY
+export function Interact(){
+    const onPlayMovie = function(){
+        alert('Playing the movie');
+    }
+    const onUpload = function(){
+        alert('Uploading the image');
+    }
+    return (
+        <Toolbar
+            onPlayMovie={onPlayMovie}
+            onUpload={onUpload}
+        />
+    )
+}
+
+function Toolbar(props){
+    const {onPlayMovie, onUpload} = props
+    return(
+        <div>
+            <Button onclick={onPlayMovie}>Play Movie</Button>
+            <Button onclick={onUpload}>Upload Image</Button>
+        </div>
+    )
+}
+
+function Button(props){
+    const {onclick, children} = props
+    return(
+        <button onClick={onclick}>
+            {children}
+        </button>
+    )
 }
