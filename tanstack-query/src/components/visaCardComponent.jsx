@@ -1,14 +1,23 @@
 import { useQuery } from '@tanstack/react-query';
 import { CgMenuRight } from 'react-icons/cg';
+import { PiSpinnerBold } from "react-icons/pi";
 import Map from './googleMap'; 
 import {foodCategories} from './api'; 
 export default function VerticalNav() {
-    const { data } = useQuery({
+    const { data, isLoading, isError, error } = useQuery({
         queryKey: ['todaysMenu'],
         queryFn: foodCategories,
     });
 
-    if (!data) return <div></div>;
+    if (isLoading) {
+            return  <div className="flex flex-col items-center justify-center">
+                        <PiSpinnerBold className="h-8 w-8 animate-spin" />
+                    </div>
+    }
+
+    if(isError){
+        return <div>Error: {error.message}</div>
+    }
 
     return (
         <div className="px-2.5">
@@ -34,7 +43,7 @@ export default function VerticalNav() {
                             <img src={meal.strCategoryThumb} alt={meal.strCategory} className="w-50 h-20" />
                             <div>
                                 <p>{meal.strCategory}</p>
-                                <p className="text-gray-500">Ksh. {meal.idCategory}</p>
+                                <p className="text-gray-500">Ksh. {meal.idCategory + 100}</p>
                             </div>
                         </div>
                     ))}

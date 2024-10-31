@@ -8,7 +8,7 @@ export default function TopMeal() {
     ]
 
     return (
-        <div className="bg-green-700 w-2/6 h-96 rounded-2xl p-4">
+        <div className="bg-green-700 w-4/6 h-96 rounded-2xl p-4">
             <h3 className="text-white mb-4 font-bold">Top 5 Meals</h3>
             <div className="text-white space-y-4">
                 <p className="text-slate-300">This week</p>
